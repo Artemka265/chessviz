@@ -81,5 +81,6 @@ void doska_hod(int x, int y)
 int main() {
     setlocale(0, "Russian");
     doska_default();
+    cout <<endl;
 	return 0;    
 }
