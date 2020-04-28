@@ -3,11 +3,11 @@
 using namespace std; 
  
 string buff; 
-bool flag_buff = false;   
+bool flag_buff = false; 
 string doska[9][9];
-bool doska_b[9][9];
+bool doska_b[9][9]; 
 int sum_hod = 0;
- 
+
 struct Figura 
 {   
     string Kw, Kb, Qw, Qb, Rw, Rb, Nw, Nb, Bw, Bb, Pw, Pb;  
@@ -21,7 +21,11 @@ struct Figura
 void doska_print() 
 {
     system("cls"); 
-    char num = 'a'; 
+    char num = 'a';
+    cout << "|Выход 'Ctrl+Z'|" << endl;
+    cout << "\t\t\t    Консольные шахматы v 1.0" << endl
+            << "\t\t\tПример хода: 'e2 e4' через пробел" << endl
+       << "\t\t     (пешка белых пошла с позиции e2 на e4)";
     cout << "\n\n";
     for (int i = 0; i < 8; i++)
     {
@@ -38,9 +42,13 @@ void doska_print()
         cout << "   " << num;
         ++num;
     }
-    
+    if (sum_hod % 2 == 0 & sum_hod > 0 | sum_hod == 1) {
+        cout << endl << "Ход черных: "; 
     }
-
+    else {
+        cout << endl << "Ход белых: ";
+    }
+}
  
 void doska_default() {  
     Figura f;
@@ -68,26 +76,26 @@ void doska_default() {
     doska[7][4] = "|" + f.Qw + "|"; doska_b[7][4] = 1;
     doska[7][5] = "|" + f.Kw + "|"; doska_b[7][5] = 1;
     
-    doska_print();
+    doska_print(); 
 }
  
-void doska_figura_remove(int x, int y)
+void doska_figura_remove(int x, int y) 
 {
     doska[8 - y][8 - (104 - x)] = "|__|";
 }
  
-void doska_hod(int x, int y)
+void doska_hod(int x, int y) 
 {           
-    if (doska_b[8 - y][8 - (104 - x)] == 1) {
+    if (doska_b[8 - y][8 - (104 - x)] == 1) { 
         buff = doska[8 - y][8 - (104 - x)]; 
-        doska_figura_remove(x, y);
-        doska_b[8 - y][8 - (104 - x)] = 0;
-        flag_buff = true;  
+        doska_figura_remove(x, y); 
+        doska_b[8 - y][8 - (104 - x)] = 0; 
+        flag_buff = true;   
     }
-    else {                
-        doska[8 - y][8 - (104 - x)] = buff;
-        doska_b[8 - y][8 - (104 - x)] = 1;
-        buff = "";             
+    else {                      
+        doska[8 - y][8 - (104 - x)] = buff; 
+        doska_b[8 - y][8 - (104 - x)] = 1; 
+        buff = "";              
         flag_buff = false;      
         doska_print();          
     }   
@@ -96,7 +104,12 @@ void doska_hod(int x, int y)
  
 int main() {
     setlocale(0, "Russian");
-    doska_default();
-    cout << endl;
-	return 0;    
+    doska_default();    
+    int str = 0;
+    char stb = 0;
+    while (cin >> stb >> str)
+    {       
+         doska_hod(stb, str);           
+    }
+    return 0;
 }
