@@ -150,7 +150,6 @@ void move_p(char pole[][9])
         cout << "\nERROR\n";
         return;
     }
-
     switch (step[3]) {
     case 'a':
         y2 = 1;
