@@ -1,8 +1,6 @@
 #include "header.h"
 #include <iostream>
-
 using namespace std;
-
 void Chessplace(char pole[][9])
 {
     cout << endl;
