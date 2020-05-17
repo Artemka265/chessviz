@@ -26,47 +26,47 @@ TEST_CASE("movePawn_2", "Incorrect pawn move")
 {
     int checking = 0;
     char mowement[6] = "c8-c9";
-    REQUIRE(CorrectInput(mowement, board, checking) == false);
+    REQUIRE(editb(mowement, board, checking) == false);
 }
 
 TEST_CASE("CorrectPieceMove", "Correct")
 {
     int checking = 1;
     char mowement[7] = "Bc8-c6";
-    REQUIRE(CorrectInput(mowement, board, checking) == true);
+    REQUIRE(editb(mowement, board, checking) == true);
 }
 
 TEST_CASE("IncorrectPieceMove", "Incorrect")
 {
     int checking = 1;
     char mowement[7] = "Qc8-c9";
-    REQUIRE(CorrectInput(mowement, board, checking) == false);
+    REQUIRE(editb(mowement, board, checking) == false);
 }
 
 TEST_CASE("PieceMove_1", "Abroad of board")
 {
     int checking = 1;
     char mowement[7] = "Qd0-d3";
-    REQUIRE(CorrectInput(mowement, board, checking) == false);
+    REQUIRE(editb(mowement, board, checking) == false);
 }
 
 TEST_CASE("PieceMove_2", "Abroad of board")
 {
     int checking = 1;
     char mowement[7] = "Bd9-d3";
-    REQUIRE(CorrectInput(mowement, board, checking) == false);
+    REQUIRE(editb(mowement, board, checking) == false);
 }
 
 TEST_CASE("PieceMove_3", "No pieces in this cell")
 {
     int checking = 1;
     char mowement[7] = "Nd6-d4";
-    REQUIRE(CorrectInput(mowement, board, checking) == false);
+    REQUIRE(editb(mowement, board, checking) == false);
 }
 
 TEST_CASE("InvalidInput", "Invalid input")
 {
     int checking = 1;
     char mowement[7] = "Nd6-i8";
-    REQUIRE(CorrectInput(mowement, board, checking) == false);
+    REQUIRE(editb(mowement, board, checking) == false);
 }
