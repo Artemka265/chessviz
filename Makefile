@@ -17,7 +17,7 @@ all: ./bin/chessviz.exe
 	$(g) $(CFLAGS) -o ./build/draw.o -c ./src/draw.cpp -lm
 
 ./build/source.o: ./src/source.cpp ./src/header.h
-	$(g) $(CFLAGS) -o ./build/move.o -c ./src/move.cpp -lm
+	$(g) $(CFLAGS) -o ./build/source.o -c ./src/source.cpp -lm
 
 test: bin/chessviz-test
 
