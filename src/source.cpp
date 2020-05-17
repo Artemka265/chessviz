@@ -29,7 +29,7 @@ void movePP(char board[][9])
     if (board[y1 - 1][x1] == 'p') {
         board[y1 - 1][x1] = ' ';
         board[y2 - 1][x2] = 'p';
-    } else if (board[Yb - 1][x1] == 'P') {
+    } else if (board[y1 - 1][x1] == 'P') {
         board[y1 - 1][x1] = ' ';
         board[y2 - 1][x2] = 'P';
     } else {
@@ -119,7 +119,7 @@ bool editb(char mowement[], char board[][9], int checking)
     if (y1 <= outOfBoard1 || y1 >= outOfBoard2 || x1 <= outOfBoard1
         || x1 >= outOfBoard2 || x2 <= outOfBoard1 || x2 >= outOfBoard2
         || y2 <= outOfBoard1 || y2 >= outOfBoard2
-        || (board[Yb - 1][x1] == ' ')) {
+        || (board[y1 - 1][x1] == ' ')) {
         cout << "Incorrect input. Abroad board or empty cage" << endl;
         return false;
     }
